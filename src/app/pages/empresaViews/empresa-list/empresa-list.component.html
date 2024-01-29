@@ -1,0 +1,62 @@
+<div>
+    <div style="text-align: center">
+        <h1 class="oscuro">Panel de Empresas </h1>
+    </div>
+    <br />
+    <br />
+
+    <div class="form-inline container table-responsive">
+        <button type="button" (click)="openModal()" class="btn btn-primary" style="float: right; margin-bottom: 10px; margin-left: 0px">Agregar Empresa</button>
+      </div>
+
+
+    <div class="container">
+        <!-- <div class="form-inline letra">
+            <label>Total de empresas:</label>
+            <input value="{{numempresas}}" readonly="true" style="width: 50px; height: 25px; text-align: center; font-weight: bold; color: blue; font-size: 18px" />
+        </div> -->
+        <table class="table table-bordered table-responsive-xl" id="tablaDatos">
+            <thead style="color: white; background-color: red">
+                <tr>
+                    <th style="text-align: center">RUC</th>
+                    <th style="text-align: center">NOMBRE</th>
+                    <th style="text-align: center">Descripción</th>
+                    <th style="text-align: center">EDITAR</th>
+                    <th style="text-align: center">ELIMINAR</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center">
+
+                @for (e of empresas; track $index) {
+                <tr>
+                        
+                    <td>{{e.ruc}}
+                    </td>
+
+                    <td >{{e.nombre}}
+                    </td>
+
+                    <td>{{e.descripcion}}
+                    </td>
+
+                    <td>
+                        <button type="button" (click)="e.idEmpresa && loadEmpresa(e)" class="btn btn-primary">Editar</button>
+                    </td>
+                    <td>
+                        <button type="button" (click)="e.idEmpresa && deleteEmpresa(e.idEmpresa)" class="btn btn-danger">Eliminar</button>
+                    </td>
+
+                </tr>
+
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+<app-modal [isOpen]="isModalOpen" (closeModal)="closeModal()">
+    <app-empresa-form (onCloseModal)="closeModal()" [data]="empresa"></app-empresa-form>
+  </app-modal>

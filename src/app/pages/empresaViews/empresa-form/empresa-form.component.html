@@ -1,0 +1,32 @@
+<h5 class="mb-5 text-lg font-bold tracking-tight text-gray-900 dark:text-white ">Detalle de Empresa</h5>
+
+<form [formGroup]="empresaForm" class="w-full" (ngSubmit)="onSubmit()" novalidate>
+    <div class="mb-5">
+      <label for="ruc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">RUC</label>
+      <input type="text" id="ruc" class="form-control" placeholder="ruc" formControlName="ruc">
+      @if (empresaForm.get('ruc')?.hasError('required') && empresaForm.get('ruc')?.touched) {
+      <div class="form-error">RUC es requerido</div>
+      }
+    </div>
+    <div class="mb-5">
+      <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
+      <input type="text" id="nombre" class="form-control" placeholder="nombre" formControlName="nombre">
+      @if (empresaForm.get('nombre')?.hasError('required') && empresaForm.get('nombre')?.touched) {
+      <div class="form-error">Nombre es requerido</div>
+      }
+    </div>
+    <div class="mb-5">
+      <label for="descripcion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descripción</label>
+      <input type="text"  id="descripcion" class="form-control" placeholder="descripcion" formControlName="descripcion">
+      @if (empresaForm.get('descripcion')?.hasError('required') && empresaForm.get('descripcion')?.touched) {
+      <div class="form-error">Descripción es requerida</div>
+      }
+    </div>
+    
+    <button type="submit"
+      class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+    <button type="button" (click)="onClose()"
+      class="text-white  ms-2 bg-gray-700 hover:bg-gray-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Cancel</button>
+</form>
+
+
