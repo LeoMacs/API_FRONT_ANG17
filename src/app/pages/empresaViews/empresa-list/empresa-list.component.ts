@@ -39,10 +39,10 @@ export class EmpresaListComponent {
     this.empresa = empresa;
   }
 
-  deleteEmpresa(idEmpresa: string) {
-    this.empresaService.DeleteEmpresa(idEmpresa).subscribe({
-      next: (response) => {
-        this.toastr.success(response.message);
+  deleteEmpresa(empresa: IEmpresa) {
+    this.empresaService.DeleteEmpresa(empresa.idEmpresa+"").subscribe({
+      next: (response:any) => {
+        this.toastr.success("Se anuló la empresa","INFO");
         this.getAllEmpresas();
       },
     });

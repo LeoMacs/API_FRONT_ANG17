@@ -81,7 +81,7 @@ export class EmpresaFormComponent implements OnChanges {
           subscribe({
             next: (response: any) => {
               this.resetEmployeeForm();
-              this.toastr.success(response.message);
+              this.toastr.success("Se registró la empresa","INFO");
             },
           });
       } else {
@@ -90,11 +90,12 @@ export class EmpresaFormComponent implements OnChanges {
         subscribe({
           next: (response: any) => {
             this.resetEmployeeForm();
-            this.toastr.success(response.message);
+            this.toastr.success("Se actualizó la empresa","INFO");
           },
         });
       }
     } else {
+      this.toastr.warning("Valide la información de la empresa","ALERTA");
       this.empresaForm.markAllAsTouched();
       console.log(this.data);
       console.log("markAllAsTouched");

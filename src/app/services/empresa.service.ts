@@ -29,8 +29,8 @@ export class EmpresaService {
 
   }
 
-  DeleteEmpresa(id:string):Observable<any>{
-    return this.http.delete(this.apiUrl +"/"+id);
+  DeleteEmpresa(idEmpresa:string):Observable<any>{
+    return this.http.delete(this.apiUrl +"/"+idEmpresa);
   }
 
 
