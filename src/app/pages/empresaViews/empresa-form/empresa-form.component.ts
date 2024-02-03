@@ -23,6 +23,7 @@ export class EmpresaFormComponent implements OnChanges {
     descripcion: '',
     bestado:1
   };
+  
   @Output() onCloseModal = new EventEmitter();
 
   empresaForm!: FormGroup;
@@ -39,9 +40,6 @@ export class EmpresaFormComponent implements OnChanges {
       nombre: new FormControl('', [Validators.required]),
       descripcion: new FormControl('', [Validators.required]),
     });
-
-    
-
   }
 
 
