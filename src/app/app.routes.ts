@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { EmpresaListComponent } from './pages/empresaViews/empresa-list/empresa-list.component';
+import { CanalListComponent } from './pages/canalComponents/canal-list/canal-list.component';
 
 export const routes: Routes = [
-    { path: '', component:EmpresaListComponent}
+    { path: '', component:CanalListComponent}
 ];

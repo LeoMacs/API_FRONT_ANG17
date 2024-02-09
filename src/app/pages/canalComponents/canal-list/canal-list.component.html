@@ -1,0 +1,77 @@
+<div>
+    <div style="text-align: center">
+        <h1 class="oscuro">Panel de Canales </h1>
+    </div>
+    <br />
+    <br />
+
+    <div class="form-inline container table-responsive">
+        <button type="button" (click)="onCreate()" class="btn btn-primary" style="float: right; margin-bottom: 10px; margin-left: 0px">Agregar Canal</button>
+      </div>
+
+
+    <div class="container">
+        <table class="table table-bordered table-responsive-xl" id="tablaDatos">
+            <thead style="color: white; background-color: red">
+                <tr>
+                    <th style="text-align: center">Descripción</th>
+                    <th style="text-align: center">EDITAR</th>
+                    <th style="text-align: center">ELIMINAR</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center">
+
+                @for (c of canales; track $index) {
+                <tr>
+                        
+                    <td>{{c.descripcion}}
+                    </td>
+
+                    <td>
+                        <button type="button" (click)="c.idcanal && onEdit(c)" class="btn btn-primary">Editar</button>
+                    </td>
+                    <td>
+                        <button type="button" (click)="c.idcanal && deleteCanal(c)" class="btn btn-danger">Eliminar</button>
+                    </td>
+
+                </tr>
+
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+
+    <!-- ******************************************************************* -->
+<br>
+<br>
+
+    <div class="container card border border-dark">
+        <div class="card-header">
+            <h2 >Detalle de Canal</h2>
+        </div>
+        
+        <form [formGroup]="canalForm" class="card-body" (ngSubmit)="onSubmit()" novalidate>
+           
+           
+            <div class="form-group">
+              <label for="descripcion" >Descripción</label>
+              <input type="text"  id="descripcion" class="form-control" placeholder="descripcion" formControlName="descripcion">
+              @if (canalForm.get('descripcion')?.hasError('required') && canalForm.get('descripcion')?.touched) {
+              <div class="form-error">Descripción es requerida</div>
+              }
+            </div>
+            <button type="submit" class="btn-primary">{{accion}}</button>
+        </form>
+
+    </div>
+    <br>
+    <br>
+
+
+
+
+</div>
+
+
